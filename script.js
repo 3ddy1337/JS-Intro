@@ -31,7 +31,7 @@ console.log((600 + 510) / 2);
 console.log(2 + 2);
 console.log(25 / 5 && 50 / 10 === 5);
 
-// First Functions
+// First Functions ***********************************************************
 
 function welcomeMsg(a) {
   return "Welcome " + a + "!";
@@ -44,7 +44,7 @@ function calcGrossPrice(a, b) {
 console.log(calcGrossPrice(20, 0.19).toFixed(1));
 console.log(calcGrossPrice(40, 0.16).toFixed(1));
 
-// Negative Number to positive number
+// Negative Number to positive number *****************************************
 
 function addPositive(a, b) {
   return Math.abs(a) + Math.abs(b);
@@ -53,7 +53,7 @@ console.log(addPositive(2, 3));
 console.log(addPositive(3, -5));
 console.log(addPositive(-1, -8));
 
-// name.length
+// name.length ****************************************************************
 
 let userName = "Brad";
 userName = "Jenna";
@@ -64,6 +64,21 @@ function getUserNameLength(name) {
   return result;
 }
 
+console.log(userName);
 console.log(getUserNameLength(userName));
 console.log(getUserNameLength(userName) > 4);
 // ^______________ Should log true
+
+// === string? ****************************************************************
+
+const isString = function (data) {
+  return typeof data === "string";
+};
+
+console.log(isString("Hello")); // true
+console.log(isString(3)); // false
+console.log(isString(undefined)); // false
+console.log(isString("")); // true
+console.log(isString("John" + "Doe")); // true
+
+console.log(typeof "Hello");
