@@ -33,22 +33,28 @@ console.log(25 / 5 && 50 / 10 === 5);
 
 // First Functions ***********************************************************
 
+// welcomeMsg
+
 function welcomeMsg(a) {
   return "Welcome " + a + "!";
 }
 console.log(welcomeMsg("Etienne"));
 
+// calcGrossPrice
+
 function calcGrossPrice(a, b) {
   return a * (1 + b);
 }
+
 console.log(calcGrossPrice(20, 0.19).toFixed(1));
 console.log(calcGrossPrice(40, 0.16).toFixed(1));
 
-// Negative Number to positive number *****************************************
+// Negative to positive number *****************************************
 
 function addPositive(a, b) {
   return Math.abs(a) + Math.abs(b);
 }
+
 console.log(addPositive(2, 3));
 console.log(addPositive(3, -5));
 console.log(addPositive(-1, -8));
@@ -69,7 +75,7 @@ console.log(getUserNameLength(userName));
 console.log(getUserNameLength(userName) > 4);
 // ^______________ Should log true
 
-// === string? ****************************************************************
+// typeof ****************************************************************
 
 const isString = function (data) {
   return typeof data === "string";
@@ -82,3 +88,133 @@ console.log(isString("")); // true
 console.log(isString("John" + "Doe")); // true
 
 console.log(typeof "Hello");
+
+// If statements **************************************************************
+
+const size = 25;
+let result;
+
+if (size > 20) {
+  result = "Greater than 20";
+} else if (size > 10) {
+  result = "Greater than 10";
+} else {
+  result = "Lower than 10";
+}
+
+console.log(result);
+// Returns Greater than 10 but should return Greater than 20
+
+// oddEven function - by using Remainder (%) **************************************
+
+function oddEven(number) {
+  if (number % 2 === 0) {
+    return "even";
+  } else {
+    return "odd";
+  }
+}
+
+console.log(oddEven(4)); // result should be even
+console.log(oddEven(3)); // result should be odd
+console.log(oddEven(-1)); // result should be odd
+console.log(oddEven(10)); // result should be even
+
+// oldYoung function ***************************************************************
+
+function oldYoung(age) {
+  if (typeof age !== "number" || age < 0) {
+    return "invalid parameter";
+  } else if (age < 16) {
+    return "children";
+  } else if (age < 50) {
+    return "young person";
+  } else {
+    return "elder person";
+  }
+}
+
+console.log(oldYoung(27)); // result should be young person
+console.log(oldYoung(6)); // result should be children
+console.log(oldYoung(-1)); // result should be invalid parameter
+console.log(oldYoung(86)); // result should be elder person
+console.log(oldYoung("Zwölf"));
+
+// Increment operator **************************************************************
+
+let count = 0;
+
+console.log(count++); // First count and than +1
+console.log(count); // New count
+console.log(++count); // first +1 than count
+console.log(++count); // first +1 than count
+console.log(count); // New count
+
+for (let index = 0; index < 3; index += 1) {
+  console.log(index);
+}
+
+// find Char in word ***************************************************************
+
+function findFirstCharPosition(word, char) {
+  let result;
+
+  for (let index = 0; index < word.length; index++) {
+    const currentChar = word[index];
+    if (currentChar === char) {
+      result = index;
+      break;
+    }
+  }
+  return result;
+}
+
+console.log(findFirstCharPosition("Etienne", "n"));
+
+// oddNumbers function ************************************************************
+
+function oddNumbers(num1, num2) {
+  if (num1 < 0 || num2 < 0 || num1 % 1 !== 0 || num2 % 1 !== 0) {
+    return "Invalid parameters. Only positive integers are allowed.";
+  }
+
+  let result = "";
+  for (let i = num1; i <= num2; i++) {
+    if (i % 2 !== 0) {
+      if (result !== "") {
+        result += ",";
+      }
+      result += i;
+    }
+  }
+  return result;
+}
+
+console.log(oddNumbers(0, 4)); // result should be: 1,3
+console.log(oddNumbers(10, 33)); // result should be: 11,13,15,17,19,21,23,25,27,29,31,33
+console.log(oddNumbers(9, 12)); // result should be: 9,11
+
+// charCount function **************************************************************
+
+function charCount(word, char) {
+  if (char.length !== 1) {
+    console.log("The second parameter must be a single character.");
+    return;
+  }
+
+  // Convert both the word and the character to lowercase for case insensitivity
+  word = word.toLowerCase();
+  char = char.toLowerCase();
+
+  let count = 0;
+  for (let i = 0; i < word.length; i++) {
+    if (word[i] === char) {
+      count++;
+    }
+  }
+  return count;
+}
+
+console.log(charCount("hello", "l")); // result should be: 2
+console.log(charCount("mama", "m")); // result should be: 2
+console.log(charCount("Resümee", "e")); // result should be: 3
